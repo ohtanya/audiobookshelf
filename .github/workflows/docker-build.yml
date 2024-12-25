@@ -1,5 +1,4 @@
 ---
-
 name: Build and Push Docker Image
 
 on:
@@ -11,7 +10,7 @@ on:
         required: true
         default: 'latest'
   push:
-    branches: [main,master]
+    branches: [main, master]
     tags:
       - 'v*.*.*'
     # Only build when files in these directories have been changed
@@ -34,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: advplyr/audiobookshelf,ghcr.io/${{ github.repository_owner }}/audiobookshelf
+          images: ohtanya/audiobookshelf,ghcr.io/${{ github.repository_owner }}/audiobookshelf
           tags: |
             type=edge,branch=master
             type=semver,pattern={{version}}
